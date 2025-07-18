@@ -128,11 +128,11 @@ namespace Vector {
 
   CONSOLE_VAR_RANGED(f32, kDebayerGamma, "Vision.Debayer", 1.7f, 0.1f, 4.f);
   bool s_debayerResetGamma(false);
-  void ResetGamma(ConsoleFunctionContextRef context)
-  {
-    Anki::Vision::Debayer::Instance().SetGamma(kDebayerGamma);
-  }
-  CONSOLE_FUNC(ResetGamma, "Vision.Debayer");
+  //void ResetGamma(ConsoleFunctionContextRef context)
+  //{
+  // Anki::Vision::Debayer::Instance().SetGamma(kDebayerGamma);
+  //}
+  //CONSOLE_FUNC(ResetGamma, "Vision.Debayer");
 
   namespace JsonKey
   {
@@ -231,7 +231,7 @@ namespace Vector {
         }
       });
 
-    Anki::Vision::Debayer::Instance().SetGamma(kDebayerGamma);
+    //Anki::Vision::Debayer::Instance().SetGamma(kDebayerGamma);
 
     SetLiftCrossBar();
 
