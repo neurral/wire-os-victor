@@ -11,6 +11,7 @@
 #include "util/console/consoleVariable.h"
 #include "util/console/consoleSystem.h"
 #include "util/string/stringHelpers.h"
+#include <cstring>
 
 namespace Anki {
 namespace Util {

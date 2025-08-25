@@ -16,6 +16,8 @@
 #include "util/logging/logging.h"
 #include "util/math/numericCast.h"
 #include "util/string/stringUtils.h"
+#include <algorithm>
+#include <chrono>
 
 #define LOG_CHANNEL    "AnkiLab"
 

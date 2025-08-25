@@ -10,13 +10,12 @@
 #ifndef __Util_Random_RandomGenerator_H__
 #define __Util_Random_RandomGenerator_H__
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-register"
-#if __has_warning("-Wextern-c-compat")
-#pragma GCC diagnostic ignored "-Wextern-c-compat"
-#endif
+//#pragma GCC diagnostic push
+//#pragma GCC diagnostic ignored "-Wdeprecated-register"
+//#if __has_warning("-Wextern-c-compat")
+//#pragma GCC diagnostic ignored "-Wextern-c-compat"
+//#endif
 #include <random>
-#pragma GCC diagnostic pop
 #include <cstdint>
 
 namespace Anki {

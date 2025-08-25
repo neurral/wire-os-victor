@@ -770,7 +770,7 @@ namespace Vision {
 
     #ifdef __ARM_NEON__
 
-      const uint16x8_t  kZeros = vdupq_n_u8(0);
+      const uint16x8_t kZeros = vdupq_n_u16(0);
       const float32x4_t kNorm  = vdupq_n_f32(1.f / 9.f);
 
       // Define neon implementation to filter a row of an image with a 3x3 box filter
@@ -1424,8 +1424,8 @@ namespace Vision {
         whichF32x4_2 = vreinterpretq_f32_u32(which32x4_2);
         // If r should be set from p then whichF32x4 will be 1s which will
         // select values from p instead of r
-        r1 = vbslq_f32(whichF32x4_1, p1, r1);
-        r2 = vbslq_f32(whichF32x4_2, p2, r2);
+        r1 = vbslq_f32(whichF32x4_1, vreinterpretq_u32_f32(p1), vreinterpretq_u32_f32(r1));
+        r2 = vbslq_f32(whichF32x4_2, vreinterpretq_u32_f32(p2), vreinterpretq_u32_f32(r2));
 
 
         // Check if r should be set from q
@@ -1443,8 +1443,8 @@ namespace Vision {
         whichF32x4_2 = vreinterpretq_f32_u32(which32x4_2);
         // If r should be set from q then whichF32x4 will be 1s which will
         // select values from q instead of r
-        r1 = vbslq_f32(whichF32x4_1, q1, r1);
-        r2 = vbslq_f32(whichF32x4_2, q2, r2);
+        r1 = vbslq_f32(whichF32x4_1, vreinterpretq_u32_f32(q1), vreinterpretq_u32_f32(r1));
+        r2 = vbslq_f32(whichF32x4_2, vreinterpretq_u32_f32(q2), vreinterpretq_u32_f32(r2));
 
 
         // Check if r should be set from t
@@ -1462,8 +1462,8 @@ namespace Vision {
         whichF32x4_2 = vreinterpretq_f32_u32(which32x4_2);
         // If r should be set from t then whichF32x4 will be 1s which will
         // select values from t instead of r
-        r1 = vbslq_f32(whichF32x4_1, t1, r1);
-        r2 = vbslq_f32(whichF32x4_2, t2, r2);
+        r1 = vbslq_f32(whichF32x4_1, vreinterpretq_u32_f32(t1), vreinterpretq_u32_f32(r1));
+        r2 = vbslq_f32(whichF32x4_2, vreinterpretq_u32_f32(t2), vreinterpretq_u32_f32(r2));
 
         // Repeat for green
 
@@ -1480,8 +1480,8 @@ namespace Vision {
         which32x4_2 = vmulq_n_u32(which32x4_2, 0xFFFFFFFF);
         whichF32x4_1 = vreinterpretq_f32_u32(which32x4_1);
         whichF32x4_2 = vreinterpretq_f32_u32(which32x4_2);
-        g1 = vbslq_f32(whichF32x4_1, p1, g1);
-        g2 = vbslq_f32(whichF32x4_2, p2, g2);
+        g1 = vbslq_f32(whichF32x4_1, vreinterpretq_u32_f32(p1), vreinterpretq_u32_f32(g1));
+        g2 = vbslq_f32(whichF32x4_2, vreinterpretq_u32_f32(p2), vreinterpretq_u32_f32(g2));
 
         which = vtbl1_u8(gq, index);
         which16x8 = vmovl_u8(which);
@@ -1493,8 +1493,8 @@ namespace Vision {
         which32x4_2 = vmulq_n_u32(which32x4_2, 0xFFFFFFFF);
         whichF32x4_1 = vreinterpretq_f32_u32(which32x4_1);
         whichF32x4_2 = vreinterpretq_f32_u32(which32x4_2);
-        g1 = vbslq_f32(whichF32x4_1, q1, g1);
-        g2 = vbslq_f32(whichF32x4_2, q2, g2);
+        g1 = vbslq_f32(whichF32x4_1, vreinterpretq_u32_f32(q1), vreinterpretq_u32_f32(g1));
+        g2 = vbslq_f32(whichF32x4_2, vreinterpretq_u32_f32(q2), vreinterpretq_u32_f32(g2));
 
         which = vtbl1_u8(gt, index);
         which16x8 = vmovl_u8(which);
@@ -1506,8 +1506,8 @@ namespace Vision {
         which32x4_2 = vmulq_n_u32(which32x4_2, 0xFFFFFFFF);
         whichF32x4_1 = vreinterpretq_f32_u32(which32x4_1);
         whichF32x4_2 = vreinterpretq_f32_u32(which32x4_2);
-        g1 = vbslq_f32(whichF32x4_1, t1, g1);
-        g2 = vbslq_f32(whichF32x4_2, t2, g2);
+        g1 = vbslq_f32(whichF32x4_1, vreinterpretq_u32_f32(t1), vreinterpretq_u32_f32(g1));
+        g2 = vbslq_f32(whichF32x4_2, vreinterpretq_u32_f32(t2), vreinterpretq_u32_f32(g2));
 
         // Repeat for blue
 
@@ -1524,8 +1524,8 @@ namespace Vision {
         which32x4_2 = vmulq_n_u32(which32x4_2, 0xFFFFFFFF);
         whichF32x4_1 = vreinterpretq_f32_u32(which32x4_1);
         whichF32x4_2 = vreinterpretq_f32_u32(which32x4_2);
-        b1 = vbslq_f32(whichF32x4_1, p1, b1);
-        b2 = vbslq_f32(whichF32x4_2, p2, b2);
+        b1 = vbslq_f32(whichF32x4_1, vreinterpretq_u32_f32(p1), vreinterpretq_u32_f32(b1));
+        b2 = vbslq_f32(whichF32x4_2, vreinterpretq_u32_f32(p2), vreinterpretq_u32_f32(b2));
 
         which = vtbl1_u8(bq, index);
         which16x8 = vmovl_u8(which);
@@ -1537,8 +1537,8 @@ namespace Vision {
         which32x4_2 = vmulq_n_u32(which32x4_2, 0xFFFFFFFF);
         whichF32x4_1 = vreinterpretq_f32_u32(which32x4_1);
         whichF32x4_2 = vreinterpretq_f32_u32(which32x4_2);
-        b1 = vbslq_f32(whichF32x4_1, q1, b1);
-        b2 = vbslq_f32(whichF32x4_2, q2, b2);
+        b1 = vbslq_f32(whichF32x4_1, vreinterpretq_u32_f32(q1), vreinterpretq_u32_f32(b1));
+        b2 = vbslq_f32(whichF32x4_2, vreinterpretq_u32_f32(q2), vreinterpretq_u32_f32(b2));
 
         which = vtbl1_u8(bt, index);
         which16x8 = vmovl_u8(which);
@@ -1550,8 +1550,8 @@ namespace Vision {
         which32x4_2 = vmulq_n_u32(which32x4_2, 0xFFFFFFFF);
         whichF32x4_1 = vreinterpretq_f32_u32(which32x4_1);
         whichF32x4_2 = vreinterpretq_f32_u32(which32x4_2);
-        b1 = vbslq_f32(whichF32x4_1, t1, b1);
-        b2 = vbslq_f32(whichF32x4_2, t2, b2);
+        b1 = vbslq_f32(whichF32x4_1, vreinterpretq_u32_f32(t1), vreinterpretq_u32_f32(b1));
+        b2 = vbslq_f32(whichF32x4_2, vreinterpretq_u32_f32(t2), vreinterpretq_u32_f32(b2));
 
         // Convert from 0-1 to 0-255
         r1 = vmulq_n_f32(r1, 255.f);

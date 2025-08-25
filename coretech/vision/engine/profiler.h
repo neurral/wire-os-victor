@@ -38,7 +38,7 @@ namespace Vision {
     // TODO: Create templated Profiler_ class, with Resolution as template argument. COZMO-3246
     // Then alias Profiler = Profiler_<milliseconds> and HighResProfiler = Profiler_<microseconds>.
     using Resolution = std::chrono::milliseconds;
-    using ClockType  = std::chrono::high_resolution_clock;
+    using ClockType  = std::chrono::steady_clock;
 
     static_assert(ClockType::is_steady, "ClockType should be steady");
 

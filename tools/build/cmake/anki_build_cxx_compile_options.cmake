@@ -21,19 +21,8 @@ set(ANKI_BUILD_CXX_COMPILE_OPTIONS
   $<$<BOOL:${IOS}>:-fobjc-arc>
   $<$<AND:$<CXX_COMPILER_ID:AppleClang>,$<VERSION_GREATER_EQUAL:${CMAKE_CXX_COMPILER_VERSION},9.0>>:-fdiagnostics-absolute-paths>
   $<$<AND:$<CXX_COMPILER_ID:Clang>,$<VERSION_GREATER_EQUAL:${CMAKE_CXX_COMPILER_VERSION},5.0>>:-fdiagnostics-absolute-paths>
-  -fdiagnostics-show-category=name
   -fsigned-char
   -g
-  -Wall
-  -Wconditional-uninitialized
-  -Wformat
-  -Wformat-security
-  -Wheader-guard
-  -Winit-self
-  -Woverloaded-virtual
-  -Wshorten-64-to-32
   -Wundef
   -Wunused-variable
-  -Wno-unused-command-line-argument
-  -Wno-delete-non-virtual-dtor
 )

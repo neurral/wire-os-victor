@@ -20,7 +20,7 @@ SCRIPT_NAME=`basename ${0}`
 TOPLEVEL=$(cd "${SCRIPT_PATH}/../.." && pwd)
 BUILD_TOOLS="${TOPLEVEL}/tools/build/tools"
 if [[ "$(uname -a)" == *"Linux"* ]]; then
-REQUIRED_GLIBC="2.27"
+REQUIRED_GLIBC="2.35"
 
 if glibc_info=$(getconf GNU_LIBC_VERSION 2>/dev/null); then
   version=${glibc_info#* }

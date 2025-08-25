@@ -22,6 +22,7 @@
 #include <string>
 #include <vector>
 #include <assert.h>
+#include <algorithm>
 
 namespace Anki {
 namespace Util {
@@ -175,7 +176,7 @@ inline std::string ConsoleVar<T>::ToString( T value ) const
 template<typename T>
 inline bool ConsoleVar<T>::ParseText( const char* text )
 {
-  const std::vector<std::string>::iterator found = std::find(_enumValues.begin(), _enumValues.end(), text);
+  const std::vector<std::string>::iterator found = std::find(_enumValues.begin(), _enumValues.end(), std::string(text));
   if(found != _enumValues.end()) {
     _value = (T)(found - _enumValues.begin());
     return true;

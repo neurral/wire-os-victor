@@ -35,13 +35,7 @@
 
 #include <cstring>
 
-// required on android for clang because of stupid
-#pragma GCC diagnostic push
-#if __has_warning("-Wextern-c-compat")
-#pragma GCC diagnostic ignored "-Wextern-c-compat"
-#endif
 #include <iostream>
-#pragma GCC diagnostic pop
 
 // a small class for calculating MD5 hashes of strings or byte arrays
 // it is not meant to be fast or secure

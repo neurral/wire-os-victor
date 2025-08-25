@@ -755,20 +755,20 @@ constexpr bool AreUnitVectorsAligned(const Point<N,f32>& unitVec1, const Point<N
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // String Operations
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-template<PointDimType N, typename T>
-std::string Point<N,T>::ToString() const
-{
-  // Convert all but the last element to avoid a trailing ","
-  static_assert(N>0, "Point must not be empty");
-  std::ostringstream oss;
-  oss << "(";
-  std::copy(this->begin(), this->end()-1, std::ostream_iterator<T>(oss, ", "));
-  
+//template<PointDimType N, typename T>
+//std::string Point<N,T>::ToString() const
+//{
+//  // Convert all but the last element to avoid a trailing ","
+//  static_assert(N>0, "Point must not be empty");
+//  std::ostringstream oss;
+//  oss << "(";
+//  std::copy(this->begin(), this->end()-1, std::ostream_iterator<T>(oss, ", "));
+//  
   // Now add the last element with no delimiter
-  oss << this->back() << ")";
+//  oss << this->back() << ")";
   
-  return oss.str();
-}
+//  return oss.str();
+//}
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 template<PointDimType N, typename T>

@@ -9,11 +9,6 @@
 #ifndef basestation_includeSstream_h
 #define basestation_includeSstream_h
 
-#pragma GCC diagnostic push
-#if __has_warning("-Wextern-c-compat")
-#pragma GCC diagnostic ignored "-Wextern-c-compat"
-#endif
 #include <sstream>
-#pragma GCC diagnostic pop
 
 #endif

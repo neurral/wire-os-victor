@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <algorithm>
 #include <sstream>
+#include <cstring>
 
 namespace Anki {
 namespace AudioEngine {

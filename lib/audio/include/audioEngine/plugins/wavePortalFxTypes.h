@@ -14,7 +14,7 @@
 
 #include <cstdint>
 #include <memory>
-
+#include <cstring>
 
 namespace Anki {
 namespace AudioEngine {

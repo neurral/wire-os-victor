@@ -15,6 +15,7 @@
 
 #include <string>
 #include <vector>
+#include <cstdint>
 
 bool AreCaseInsensitiveStringsEqual(const std::string& s1, const std::string& s2);
 std::string byteVectorToHexString(const std::vector<uint8_t>& byteVector,

@@ -35,7 +35,8 @@ class ScopedTicToc
 {
 public:
   using Resolution = std::chrono::milliseconds;
-  using ClockType  = std::chrono::high_resolution_clock;
+  //using ClockType  = std::chrono::high_resolution_clock;
+  using ClockType = std::chrono::steady_clock;
   static_assert(ClockType::is_steady, "ClockType should be steady");
   
   ScopedTicToc(const char* name, const char* channel = "ScopedTicToc")

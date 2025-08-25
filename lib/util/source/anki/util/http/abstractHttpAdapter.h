@@ -17,6 +17,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <cstdint>
 
 namespace Anki {
 namespace Util {

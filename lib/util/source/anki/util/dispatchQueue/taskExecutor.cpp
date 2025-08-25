@@ -21,6 +21,7 @@
 #include <condition_variable>
 #include <cstring>
 #include <pthread.h>
+#include <functional>
 
 namespace Anki
 {

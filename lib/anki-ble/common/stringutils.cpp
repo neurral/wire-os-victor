@@ -14,6 +14,7 @@
 #include "stringutils.h"
 #include <algorithm>
 #include <cctype>
+#include <cstdint>
 
 static uint8_t hex_char_to_byte(char input) {
   if (input >= '0' && input <= '9') {

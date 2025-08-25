@@ -19,8 +19,8 @@ function(vicos_strip)
 
     anki_get_output_location(TARGET_OUT_PATH ${astrip_TARGET})
 
-    set(STRIP_CMD "${VICOS_TOOLCHAIN_PREFIX}strip")
-    set(OBJCOPY_CMD "${VICOS_TOOLCHAIN_PREFIX}objcopy")
+    set(STRIP_CMD "arm-oe-linux-gnueabi-strip")
+    set(OBJCOPY_CMD "arm-oe-linux-gnueabi-objcopy")
     add_custom_command(TARGET ${astrip_TARGET} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
             ${TARGET_OUT_PATH}

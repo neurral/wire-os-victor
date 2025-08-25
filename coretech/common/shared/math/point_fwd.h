@@ -26,6 +26,7 @@
 
 #include "coretech/common/shared/types.h"
 #include "opencv2/core.hpp"
+#include <string>
 
 namespace Anki {
   
@@ -157,7 +158,18 @@ namespace Anki {
     T MakeUnitLength(void);
 
     // Returns "(x, y, ...)"
-    std::string ToString() const;
+    //std::string ToString() const;
+    std::string ToString() const {
+        std::ostringstream oss;
+        oss << "(";
+        for (size_t i = 0; i < N; ++i) {
+            if (i) oss << ", ";
+            oss << (*this)[i];
+        }
+        oss << ")";
+        return oss.str();
+}
+
         
   }; // class Point
   

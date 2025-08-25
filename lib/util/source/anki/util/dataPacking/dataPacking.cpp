@@ -118,12 +118,7 @@ bool PackMaskedIds(const unsigned int* idArray, size_t idCount, unsigned char* o
     idHashedValue = ( idValue << (firstBitOfMask - charOffset) );
     
     // htonl/ntohl is required or bits overlap with current algorithm (because of shifting applied)
-#pragma GCC diagnostic push
-#if __has_warning("-Wdeprecated-register")
-#pragma GCC diagnostic ignored "-Wdeprecated-register"
-#endif
     idHashedValue = htonl(idHashedValue);
-#pragma GCC diagnostic pop
     
     // first, read the current value in the buffer because we are encoding the current id with some others
     memcpy(&idValueAtBuffer, &outBufferPtr[charPosition], sizeof(idValueAtBuffer));
@@ -270,13 +265,7 @@ bool UnpackMaskedIds(const unsigned char* inBuffer, size_t inBufferSize, unsigne
     idMaskedValue = idValueAtBuffer;
     
     // htonl/ntohl required
-#pragma GCC diagnostic push
-#if __has_warning("-Wdeprecated-register")
-#pragma GCC diagnostic ignored "-Wdeprecated-register"
-#endif
-    idMaskedValue = ntohl(idMaskedValue);
-#pragma GCC diagnostic pop
-    
+    idMaskedValue = ntohl(idMaskedValue);    
     // unmask the id
     idMaskedValue = ( idMaskedValue >> (firstBitOfMask - charOffset) );
     unsigned int idValue = ( idMaskedValue & idMask );

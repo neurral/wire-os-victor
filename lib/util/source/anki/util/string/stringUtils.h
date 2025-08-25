@@ -16,6 +16,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <cstdint>
 
 #define ANKI_STRINGIFY_HELPER(x) #x
 #define ANKI_STRINGIFY(x) ANKI_STRINGIFY_HELPER(x)

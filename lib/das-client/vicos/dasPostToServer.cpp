@@ -14,6 +14,7 @@
 #include <zlib.h>
 #include <string>
 #include <stdio.h>
+#include <memory>
 
 #include <curl/curl.h>
 #include <vector>

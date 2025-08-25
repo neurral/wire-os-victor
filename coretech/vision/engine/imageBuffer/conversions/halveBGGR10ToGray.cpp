@@ -125,7 +125,7 @@ void HalveBGGR10ToGray(const u8* bayer, s32 rows, s32 cols,
 
       // Perform the series of bit shifts, treaing the data as the appropriate types
       uint16x8_t t1 = vshlq_u16(vreinterpretq_u16_u8(row1), shift1_1);
-      uint32x4_t t2 = vshlq_u32(vreinterpretq_u32_u8(t1),   shift2_1);
+      uint32x4_t t2 = vshlq_u32(vreinterpretq_u32_u16(t1),   shift2_1);
       uint64x2_t t3 = vshlq_u64(vreinterpretq_u64_u32(t2),  shift3_1);
 
       // Bitwise OR the two halves
@@ -144,7 +144,7 @@ void HalveBGGR10ToGray(const u8* bayer, s32 rows, s32 cols,
       bayer2 += 15;
 
       t1 = vshlq_u16(vreinterpretq_u16_u8(row1), shift1_2);
-      t2 = vshlq_u32(vreinterpretq_u32_u8(t1),   shift2_2);
+      t2 = vshlq_u32(vreinterpretq_u32_u16(t1),   shift2_2);
       t3 = vshlq_u64(vreinterpretq_u64_u32(t2),  shift3_2);
       
       high = vget_high_u64(t3);
