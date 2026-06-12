@@ -12,6 +12,8 @@ compile_commands.json
 matlab.mat
 
 _build*/
+.DS_Store
+3rd/**/.DS_Store
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # build folders
